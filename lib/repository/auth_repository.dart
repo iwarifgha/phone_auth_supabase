@@ -25,5 +25,3 @@ Future<User?> verifyUser({
 }
 
 
-Stream<AuthState> get currentState => Supabase.instance.client.auth.onAuthStateChange;
-

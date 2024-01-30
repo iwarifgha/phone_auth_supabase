@@ -5,18 +5,24 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:supabase_phone_auth/bloc/auth_cubit.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+    const SignInScreen({super.key});
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  late String phoneNumber;
 
-  String formatPhone(String countryCode, String number){
-    final formattedNumber = number.replaceFirst(RegExp(r'^[0-9]'), '');
-    return phoneNumber = countryCode + formattedNumber;
+  late String _phoneNumber;
+
+
+  ///This method takes in two Strings as parameters and uses them to initialize the _phoneNumber variable
+  String _formatPhone({
+    required String countryCode,
+    required String phone
+  }) {
+    final formattedNumber = phone.replaceFirst(RegExp(r'^[0-9]'), '');
+    return _phoneNumber = countryCode + formattedNumber;
   }
 
   @override
@@ -36,14 +42,17 @@ class _SignInScreenState extends State<SignInScreen> {
               initialCountryCode: 'NG', // You can set the initial country code if needed
               onChanged: (phone) {
                 // Handle phone number changes
-                formatPhone(phone.countryCode, phone.number);
+                _formatPhone(
+                    countryCode: phone.countryCode,
+                    phone: phone.number
+                );
               },
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Call the function to send OTP
-                context.read<AuthCubit>().sendOTP(phoneNumber);
+                context.read<AuthCubit>().sendOTP(_phoneNumber);
               },
               child: const Text('Send OTP'),
             ),

@@ -4,8 +4,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class AuthCubitState {}
 
-//class AuthInitialState extends AuthState {}
-
 class AuthLoadingState extends AuthCubitState {}
 
 class AuthSignInState extends AuthCubitState {}

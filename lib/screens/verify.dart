@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:supabase_phone_auth/bloc/auth_states.dart';
+import 'package:supabase_phone_auth/bloc/auth_cubit_states.dart';
 
 import '../bloc/auth_cubit.dart';
 
-class VerifyOTPScreen extends StatelessWidget {
-  const VerifyOTPScreen({super.key, required this.phoneNumber});
-  final String phoneNumber;
+class VerifyOTPScreen extends StatefulWidget {
+    const VerifyOTPScreen({super.key,});
+
+  @override
+  State<VerifyOTPScreen> createState() => _VerifyOTPScreenState();
+}
+
+class _VerifyOTPScreenState extends State<VerifyOTPScreen> {
+  TextEditingController codeController = TextEditingController();
+
+
+  @override
+  void dispose() {
+    codeController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController codeController = TextEditingController();
 
     return BlocBuilder<AuthCubit, AuthCubitState>(
       builder: (context, state) {

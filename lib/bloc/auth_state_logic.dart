@@ -6,7 +6,7 @@ import 'package:supabase_phone_auth/screens/home.dart';
 import 'package:supabase_phone_auth/screens/verify.dart';
 
 import '../screens/sign_in.dart';
-import 'auth_states.dart';
+import 'auth_cubit_states.dart';
 
 class AuthLogic extends StatelessWidget {
   const AuthLogic({super.key});
@@ -20,11 +20,11 @@ class AuthLogic extends StatelessWidget {
             return const Center(
                 child: CircularProgressIndicator());
           } else if (state is AuthSuccessState) {
-            return HomeScreen(user: state.user,);
+            return const HomeScreen();
           }  else if (state is AuthSignInState) {
             return const SignInScreen();
           } else if (state is AuthVerifyOtpState) {
-            return VerifyOTPScreen(phoneNumber: state.phone);
+            return const VerifyOTPScreen();
           } else {
             //The only logical remaining state is the error state. So we cast the current state to AuthErrorState.
             state as AuthErrorState;

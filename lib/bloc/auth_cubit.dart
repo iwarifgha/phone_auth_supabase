@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 
 import '../repository/auth_repository.dart';
-import 'auth_states.dart';
+import 'auth_cubit_states.dart';
 
 class AuthCubit extends Cubit<AuthCubitState> {
   AuthCubit() : super(AuthSignInState());
