@@ -12,14 +12,13 @@ void main() {
           'Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODgwMTg1NzMsImV4cCI6MjAwMzU5NDU3M30.'
           'v5OPEJeEdKBKh6el_y4yZ8CEaRjMt5j-IvuWNyweiNM'
   );
-  runApp(const MyApp());
+  runApp(const MyPhoneAuthApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyPhoneAuthApp extends StatelessWidget {
+  const MyPhoneAuthApp({super.key});
 
-  // This widget is the root of your application.
-  @override
+   @override
   Widget build(BuildContext context) {
     return MaterialApp(
        theme: ThemeData(
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
         create: (context) => AuthCubit(),
-        child: const AuthLogic(),
+        child: const AuthStateLogic(),
       ),
     );
   }

@@ -8,8 +8,8 @@ import 'package:supabase_phone_auth/screens/verify.dart';
 import '../screens/sign_in.dart';
 import 'auth_cubit_states.dart';
 
-class AuthLogic extends StatelessWidget {
-  const AuthLogic({super.key});
+class AuthStateLogic extends StatelessWidget {
+  const AuthStateLogic({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -35,14 +35,5 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
 }
 
-//create a supabase project
-//create flutter project
-//write your screens
-//write your repository
-//write your bloc
-//test the code
-//set up phone auth in supabase
-//set up Vonage
-//test the code again.
 
 
